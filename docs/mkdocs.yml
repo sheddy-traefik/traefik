@@ -189,21 +189,35 @@ nav:
       - 'Data Collection': 'contributing/data-collection.md'
       - 'Advocating': 'contributing/advocating.md'
       - 'Maintainers': 'contributing/maintainers.md'
-  - 'References':
-      - 'Static Configuration':
-          - 'Overview': 'reference/static-configuration/overview.md'
-          - 'File': 'reference/static-configuration/file.md'
-          - 'CLI': 'reference/static-configuration/cli.md'
-          - 'Environment variables': 'reference/static-configuration/env.md'
-      - 'Dynamic Configuration':
-        - 'File': 'reference/dynamic-configuration/file.md'
-        - 'Docker': 'reference/dynamic-configuration/docker.md'
-        - 'Swarm': 'reference/dynamic-configuration/swarm.md'
-        - 'Kubernetes CRD': 'reference/dynamic-configuration/kubernetes-crd.md'
-        - 'Consul Catalog': 'reference/dynamic-configuration/consul-catalog.md'
-        - 'Nomad': "reference/dynamic-configuration/nomad.md"
-        - 'ECS': 'reference/dynamic-configuration/ecs.md'
-        - 'KV': 'reference/dynamic-configuration/kv.md'
+  - 'Reference':
+    - 'Install Configuration':
+      - 'Boot Environment': 'reference/install-configuration/boot-environment/overview.md'
+      - 'Routing Discovery (Providers)':
+        - 'Overview' : 'reference/install-configuration/providers/overview.md'
+        - 'Kubernetes':
+          - 'Gateway API' : 'reference/install-configuration/providers/kubernetes/kubernetes-gateway.md'
+          - 'IngressRoute' : 'reference/install-configuration/providers/kubernetes/kubernetes-crd.md'
+          - 'Ingress' : 'reference/install-configuration/providers/kubernetes/kubernetes-ingress.md'
+        - 'Docker': 'reference/install-configuration/providers/docker.md'
+        - 'Swarm': 'reference/install-configuration/providers/swarm.md'
+        - 'Hashicorp':
+          - 'Nomad': "reference/install-configuration/providers/hashicorp/nomad.md"
+          - 'Consul': 'reference/install-configuration/providers/hashicorp/consul.md'
+          - 'Consul Catalog': 'reference/install-configuration/providers/hashicorp/consul-catalog.md'
+        - 'KV Stores':
+          - 'Redis': 'reference/install-configuration/providers/kv/redis.md'
+          - 'Consul': 'reference/install-configuration/providers/kv/consul.md'
+          - 'etcd': 'reference/install-configuration/providers/kv/etcd.md'
+          - 'ZK' : 'reference/install-configuration/providers/kv/zk.md'
+        - 'Others':
+          - 'File': 'reference/install-configuration/providers/others/file.md'
+          - 'ECS': 'reference/install-configuration/providers/others/ecs.md'
+          - 'HTTP': 'reference/install-configuration/providers/others/http.md'
+      - 'EntryPoints': 'reference/install-configuration/entrypoints.md'
+      # - 'API & Dashboard': 'reference/install-configuration/api-dashboard.md'
+        # - 'TLS'
+        # - 'Observability'
+        # - 'Options List' 
   - 'Deprecation Notices':
       - 'Releases': 'deprecation/releases.md'
       - 'Features': 'deprecation/features.md'
