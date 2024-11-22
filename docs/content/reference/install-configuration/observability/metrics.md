@@ -12,7 +12,7 @@ Traefik provides metrics in the [OpenTelemetry](#open-telemetry) format as well 
 - [Prometheus](#prometheus)
 - [StatsD](#statsd)
 
-Traefik Proxy has an official Grafana dashboard for both [on-premises](https://grafana.com/grafana/dashboards/17346)
+Traefik Proxy hosts an official Grafana dashboard for both [on-premises](https://grafana.com/grafana/dashboards/17346)
 and [Kubernetes](https://grafana.com/grafana/dashboards/17347) deployments.
 
 ---
@@ -29,12 +29,21 @@ To enable the OpenTelemetry metrics:
 
 ```yaml tab="File (YAML)"
 metrics:
-  otlp: {}
+  otlp:
+    enabled: true
+    http:
+      enabled: true
+      endpoint: http://myotlpcollector:4318/v1/metrics
 ```
 
 ```toml tab="File (TOML)"
 [metrics]
   [metrics.otlp]
+    enabled = true
+
+    [metrics.otlp.http]
+      enabled = true
+      endpoint = "http://myotlpcollector:4318/v1/metrics"
 ```
 
 ```bash tab="CLI"
@@ -51,6 +60,13 @@ metrics:
     enabled: true
     http:
       enabled: true
+      endpoint: http://myotlpcollector:4318/v1/metrics
+  # Enable providing OTel traces
+  tracing:
+    enabled: true
+    http:
+      enabled: true
+      endpoint: http://myotlpcollector:4318/v1/traces
 ```
 
 !!! tip "Helm Chart Configuration"
@@ -119,6 +135,8 @@ metrics:
 | `datadog.prefix` | Defines the prefix to use for metrics collection. |  "traefik"   | No   |
 
 ##### `address`
+
+_Required, Default="127.0.0.1:8125"_
 
 Address instructs exporter to send metrics to datadog-agent at this address.
 
